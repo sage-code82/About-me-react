@@ -13,9 +13,19 @@ export default function Dice() {
     setRollResult(totalRoll);
   };
 
+  const handleDiceChange = (event) => {
+    setNumberOfDice(event.target.value);
+  };
+
   return (
     <main>
-      <h2>Chuck Some Dice</h2>
+      <h2>Chuck Some D6 Dice</h2>
+      <div>
+        <label>Number of Dice:</label>
+        <input type="number" value={numberOfDice} onChange={handleDiceChange} />
+      </div>
+      <button onClick={rollDice}>Roll Dice</button>
+      {rollResult !== null && <p>Result: {rollResult}</p>}
     </main>
   );
 }
